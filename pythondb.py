@@ -1,6 +1,5 @@
 import sqlite3
 
-
 class Sqlite3_db:
     def __init__(self,database='BookSQL.db'):
         self.database=database
@@ -12,11 +11,11 @@ class Sqlite3_db:
         self.cur.execute('INSERT INTO Publisher VALUES(1,"Ali Shakoori","Meydan gorgan",09127171637,"Alishakoori89@gmail.com")')  
         self.conn.commit()
 
-        self.cur.execute('CREATE TABLE IF NOT EXISTS book(bID INTEGER PRIMARY KEY AUTOINCREMENT,pID INTEGER,aID INTEGER,\
+        self.cur.execute('CREATE TABLE IF NOT EXISTS book(bID INTEGER PRIMARY KEY AUTOINCREMENT,pID INTEGER,\
             ISBN INTEGER,Publisher_Name TEXT(50),Author_Name TEXT(200),Author_Address TEXT(100),year INTEGER,Title TEXT(50),\
                 Price INTEGER,FOREIGN KEY (pID) REFERENCES Publisher (pID)\
                     ON UPDATE CASCADE)')
-        self.cur.execute('INSERT INTO book VALUES(1,1,1,123,"َAmir Lesani","Surush Mehmandoost","tehran dabestan",1370/05/07,"kosesherhaye sooroosh",200000)') 
+        self.cur.execute('INSERT INTO book VALUES(1,1,123,"َAmir Lesani","Surush Mehmandoost","tehran dabestan",1370/05/07,"kosesherhaye sooroosh",200000)') 
         self.conn.commit()
 
         self.cur.execute('CREATE TABLE IF NOT EXISTS author(aID INTEGER PRIMARY KEY AUTOINCREMENT,AName TEXT(40),Address TEXT(100),URL TEXT(80))')
